@@ -99,9 +99,11 @@ a#header-link {
 
 .cards {
     display: flex;
-    justify-content: space-between;
-    gap: 5%;
+    justify-content: space-evenly;
+    /* gap: 5%; */
     padding-top: 20px;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .album {
@@ -111,6 +113,7 @@ a#header-link {
     /* justify-content: center; */
     align-items: center;
     color:#1f2937;
+    width: 230px;
 }
 
 .album > img {
