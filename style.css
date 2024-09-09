@@ -113,7 +113,7 @@ a#header-link {
     /* justify-content: center; */
     align-items: center;
     color:#1f2937;
-    width: 230px;
+    width: 250px;
 }
 
 .album > img {
@@ -121,8 +121,8 @@ a#header-link {
 }
 
 .bottom {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 160px;
+    padding-right: 160px;
     background-color: #e5e7eb;
     display: flex;
     flex-direction: column;
