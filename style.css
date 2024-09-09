@@ -20,9 +20,53 @@ ul#header-links {
     display: flex;
     gap: 30px;
     font-size: 18px;
+    font-weight: 600;
 }
 
 a#header-link {
     text-decoration: none;
     color: #e5e7eb;
+}
+
+.top-section {
+    background-color: #1f2937;
+    display: flex;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    gap: 5%;
+}
+
+.top-left {
+    color: #e5e7eb;
+    flex: 1;
+}
+
+.top-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.p1 {
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.p2 {
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+
+#btn1 {
+    background-color: #3822F6;
+    border-radius: 6px;
+    color: #e5e7eb;
+    font-weight: 900;
+    border: none;
+    padding: 6px 20px;
+    margin-top: 20px;
 }
