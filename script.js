@@ -11,12 +11,11 @@ albumList.forEach(function (item) {
     item.addEventListener('mouseout', onMouseout)
     
     function onMouseover () {
-        item.style.borderColour = "#CCC";
-        item.style.border = "solid 1px";
+        item.style.backgroundColor = "#CCC";
     };
 
     function onMouseout () {
-        item.style.border = "0px";
+        item.style.backgroundColor = "#ffffff";
     };
 });
 
