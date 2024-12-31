@@ -206,3 +206,7 @@ a#header-link {
     color: #e5e7eb;
     font-weight: 600;
 }
+
+.addToCart {
+    margin-bottom: 30px;
+}
