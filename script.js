@@ -1,15 +1,23 @@
 
 //Elements
-const albums = document.querySelectorAll('.album');
+const albums = document.querySelector('.album');
 const itemForm = document.querySelectorAll('.item-form');
 const signBtn = document.querySelectorAll('.btn2');
 
 
-//Event Listeners
-albums.addEventListener('mouseover', highLightItem);
 
-function highLightItem () {
+
+function onMouseover () {
     albums.style.backgroundColor = "#CCC"
+};
+
+function onMouseout () {
+    albums.style.backgroundColor = "#ffffff"
 }
 
 console.log(albums);
+
+
+//Event Listeners
+albums.addEventListener('mouseover', onMouseover);
+albums.addEventListener('mouseout', onMouseout);
