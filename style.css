@@ -55,6 +55,10 @@ a#header-link {
     flex: 1;
 }
 
+.top-right > img {
+    border-radius: 12px;
+}
+
 .p1 {
     font-size: 48px;
     font-weight: 900;
