@@ -8,7 +8,7 @@ const counter = document.getElementById('cntr');
 const crtBtn = document.querySelectorAll('.addToCart');
 const rmvBtn = document.querySelectorAll('.remove-item-btn');
 
-//console.log(albumList);
+console.log(itemList);
 
 //Background-hover album cards
 albumList.forEach(function (item) {
@@ -33,16 +33,48 @@ albumList.forEach(function (item) {
 
     function addToCart(e) {
         if (e.target.classList.contains('addToCart')) {
-            console.log('works');
+            console.log('works')
+            addItemtoDOM();
         }
-
     }
 })
 
 //Create li-Element
+function addItemtoDOM () {
+    const li = document.createElement('li');
+    li.className = "item";
 
-//Create Remove Button
+    const remCntSec = removeAndCounterSection();
 
+    li.appendChild(remCntSec);
+    itemList.appendChild(li);
+}
+
+//Create 
+
+
+//Create Remove Button and Counter Div
+function removeAndCounterSection () {
+
+        const div = document.createElement('div');
+        div.className = "item-nmbr-rmv";
+        
+
+        const counter = document.createElement('form');
+        counter.className = "item-nmbr";
+        counter.innerHTML = '<input type="number" id="cntr" value="1" style="width:3em">';
+    
+
+        const button = document.createElement('button');
+        button.className = "remove-item-btn";
+        button.innerText = "Remove";
+
+        div.appendChild(counter);
+        div.appendChild(button);
+
+        return div;
+        //console.log(div);
+}
 
 
 // //Remove-Button
