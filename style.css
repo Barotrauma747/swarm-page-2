@@ -125,6 +125,11 @@ a#header-link {
     border-radius: 6%;
 }
 
+.cart-header {
+    color: rgb(197, 197, 197);
+    font-weight: 600;
+    font-size: large;
+}
 
 .shopping-cart {
     background-color: #323a46;
