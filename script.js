@@ -5,6 +5,9 @@ const albumList = document.querySelectorAll('.album')
 const itemForm = document.querySelectorAll('.item-form');
 const signBtn = document.querySelectorAll('.btn2');
 const counter = document.getElementById('cntr');
+const crtBtn = document.querySelectorAll('.addToCart');
+const rmvBtn = document.querySelectorAll('.remove-item-btn');
+
 
 
 //Background-hover album cards
