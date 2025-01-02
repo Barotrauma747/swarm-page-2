@@ -4,7 +4,10 @@
 const albumList = document.querySelectorAll('.album')
 const itemForm = document.querySelectorAll('.item-form');
 const signBtn = document.querySelectorAll('.btn2');
+const counter = document.getElementById('cntr');
 
+
+//Background-hover album cards
 albumList.forEach(function (item) {
     
     item.addEventListener('mouseover', onMouseover)
