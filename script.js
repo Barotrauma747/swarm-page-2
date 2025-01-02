@@ -1,14 +1,14 @@
 
 //Elements
-//const albums = document.querySelector('.');
 const albumList = document.querySelectorAll('.album')
+const itemList = document.querySelector('.item-list');
 const itemForm = document.querySelectorAll('.item-form');
 const signBtn = document.querySelectorAll('.btn2');
 const counter = document.getElementById('cntr');
 const crtBtn = document.querySelectorAll('.addToCart');
 const rmvBtn = document.querySelectorAll('.remove-item-btn');
 
-
+console.log(rmvBtn);
 
 //Background-hover album cards
 albumList.forEach(function (item) {
@@ -27,5 +27,23 @@ albumList.forEach(function (item) {
 
 
 
+// //Remove-Button
+function onClickItem(e) {
+     if (e.target.parentElement.classList.contains('item-nmbr-rmv')) {
+         removeItem(e.target.parentElement.parentElement);
+        }
+}
 
-console.log(albumList);
+function removeItem(item) {
+    if (confirm('Are you sure?')) {
+        //Remove item from DOM
+        item.remove();
+
+        //Remove item from storage
+        //removeItemFromStorage(item.textContent);
+
+        //checkUI();
+    }
+}
+
+itemList.addEventListener('click', onClickItem);
