@@ -27,17 +27,16 @@ albumList.forEach(function (item) {
 
 
 //Add Item to Cart
-
 albumList.forEach(function (item) {
     item.addEventListener('click', addToCart);
 
     function addToCart(e) {
         if (e.target.classList.contains('addToCart')) {
-            console.log('works')
+            console.log(e.target.parentElement.firstElementChild);
             addItemtoDOM();
         }
     }
-})
+});
 
 //Create li-Element
 function addItemtoDOM () {
@@ -53,7 +52,6 @@ function addItemtoDOM () {
 }
 
 //Create Item-Info section
-
 function itemInfo () {
     const div = document.createElement('div');
     div.className = "item-info";

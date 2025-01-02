@@ -123,6 +123,7 @@ a#header-link {
 
 .album > img {
     border-radius: 6%;
+    width: 150px;
 }
 
 .item-info > img {
