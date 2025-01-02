@@ -1,6 +1,7 @@
 
 //Elements
-const albumList = document.querySelectorAll('.album')
+const albumList = document.querySelectorAll('.album');
+const cardList = document.querySelector('.cards');
 const itemList = document.querySelector('.item-list');
 const itemForm = document.querySelectorAll('.item-form');
 const signBtn = document.querySelectorAll('.btn2');
@@ -8,7 +9,7 @@ const counter = document.getElementById('cntr');
 const crtBtn = document.querySelectorAll('.addToCart');
 const rmvBtn = document.querySelectorAll('.remove-item-btn');
 
-console.log(itemList);
+console.log(cardList);
 
 //Background-hover album cards
 albumList.forEach(function (item) {
@@ -32,11 +33,12 @@ albumList.forEach(function (item) {
 
     function addToCart(e) {
         if (e.target.classList.contains('addToCart')) {
-            console.log(e.target.parentElement.firstElementChild);
+            console.log(e.target.parentElement.firstElementChild.src);
             addItemtoDOM();
         }
     }
 });
+
 
 //Create li-Element
 function addItemtoDOM () {
@@ -57,7 +59,7 @@ function itemInfo () {
     div.className = "item-info";
 
     const image = document.createElement('img');
-    image.src = "./images/abyss.jpeg"
+    image.src = "./images/abyss.jpeg";
 
     const albumInfo = document.createElement('div');
     albumInfo.className = "album-info";
@@ -131,4 +133,6 @@ function removeItem(item) {
         //checkUI();
 }
 
+
 itemList.addEventListener('click', onClickItem);
+
