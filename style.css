@@ -145,6 +145,19 @@ a#header-link {
     padding-bottom: 5px;
 }
 
+.item-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 13rem;
+}
+
+.album-info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+}
+
 .item-nmbr-rmv {
     display: flex;
     flex-direction: row;
