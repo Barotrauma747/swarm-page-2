@@ -45,12 +45,51 @@ function addItemtoDOM () {
     li.className = "item";
 
     const remCntSec = removeAndCounterSection();
+    const itemInfoSec = itemInfo();
 
+    li.appendChild(itemInfoSec);
     li.appendChild(remCntSec);
     itemList.appendChild(li);
 }
 
-//Create 
+//Create Item-Info section
+
+function itemInfo () {
+    const div = document.createElement('div');
+    div.className = "item-info";
+
+    const image = document.createElement('img');
+    image.src = "./images/abyss.jpeg"
+
+    const albumInfo = document.createElement('div');
+    albumInfo.className = "album-info";
+
+    const albumName = document.createElement('div');
+    albumName.className = "album-Name";
+    albumName.innerHTML = "<strong>Abyss</strong>";
+
+    const price = document.createElement('div');
+    price.className = "price";
+    price.textContent = "9.99$";
+
+    const packageVersion = document.createElement('div');
+    packageVersion.className = "package-form";
+    
+    const select = document.createElement('select');
+    select.id = "package-version";
+    select.name = "Choose Version";
+    select.innerHTML = '<option value="1">Digipack</option><option value="2">Jewel Case</option>';
+
+    packageVersion.appendChild(select);
+    albumInfo.appendChild(albumName);
+    albumInfo.appendChild(price);
+    albumInfo.appendChild(packageVersion);
+    div.appendChild(image);
+    div.appendChild(albumInfo);
+
+    return div;
+
+}
 
 
 //Create Remove Button and Counter Div
@@ -85,7 +124,6 @@ function onClickItem(e) {
 }
 
 function removeItem(item) {
-    if (confirm('Are you sure?')) {
         //Remove item from DOM
         item.remove();
 
@@ -93,7 +131,6 @@ function removeItem(item) {
         //removeItemFromStorage(item.textContent);
 
         //checkUI();
-    }
 }
 
 itemList.addEventListener('click', onClickItem);

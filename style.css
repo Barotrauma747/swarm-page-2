@@ -127,6 +127,8 @@ a#header-link {
 
 .item-info > img {
     border-radius: 10%;
+    width: 7em;
+    margin-right: 1rem
 }
 
 .cart-header {
@@ -161,9 +163,7 @@ a#header-link {
     flex-grow: 0;
 }
 
-.album-info {
-    padding-left: 10rem;
-}
+.album-info {}
 
 .item-nmbr-rmv {
     display: flex;
