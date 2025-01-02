@@ -125,6 +125,10 @@ a#header-link {
     border-radius: 6%;
 }
 
+.item-info > img {
+    border-radius: 10%;
+}
+
 .cart-header {
     color: rgb(197, 197, 197);
     font-weight: 600;
