@@ -8,7 +8,7 @@ const counter = document.getElementById('cntr');
 const crtBtn = document.querySelectorAll('.addToCart');
 const rmvBtn = document.querySelectorAll('.remove-item-btn');
 
-console.log(rmvBtn);
+//console.log(albumList);
 
 //Background-hover album cards
 albumList.forEach(function (item) {
@@ -24,6 +24,24 @@ albumList.forEach(function (item) {
         item.style.backgroundColor = "#ffffff";
     };
 });
+
+
+//Add Item to Cart
+
+albumList.forEach(function (item) {
+    item.addEventListener('click', addToCart);
+
+    function addToCart(e) {
+        if (e.target.classList.contains('addToCart')) {
+            console.log('works');
+        }
+
+    }
+})
+
+//Create li-Element
+
+//Create Remove Button
 
 
 
