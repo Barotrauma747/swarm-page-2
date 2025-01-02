@@ -145,6 +145,12 @@ a#header-link {
     padding-bottom: 5px;
 }
 
+.item-nmbr-rmv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 .bottom {
     padding-left: 160px;
     padding-right: 160px;
