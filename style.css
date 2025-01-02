@@ -125,6 +125,26 @@ a#header-link {
     border-radius: 6%;
 }
 
+
+.shopping-cart {
+    background-color: #323a46;
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    gap: 5%;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .bottom {
     padding-left: 160px;
     padding-right: 160px;
