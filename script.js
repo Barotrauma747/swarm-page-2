@@ -8,8 +8,9 @@ const signBtn = document.querySelectorAll('.btn2');
 const counter = document.getElementById('cntr');
 const crtBtn = document.querySelectorAll('.addToCart');
 const rmvBtn = document.querySelectorAll('.remove-item-btn');
+const checkOutBtn = document.querySelector('.btn3');
 
-//console.log(cardList);
+//console.log(checkOutBtn);
 
 //Background-hover album cards
 albumList.forEach(function (item) {
@@ -36,6 +37,7 @@ albumList.forEach(function (item) {
             addItemtoDOM(item);
         }
     }
+    checkUI()
 });
 
 
@@ -50,6 +52,8 @@ function addItemtoDOM (arg) {
     li.appendChild(itemInfoSec);
     li.appendChild(remCntSec);
     itemList.appendChild(li);
+
+    checkUI();
 }
 
 //Create Item-Info section
@@ -132,7 +136,18 @@ function removeItem(item) {
         //Remove item from storage
         //removeItemFromStorage(item.textContent);
 
-        //checkUI();
+        checkUI();
+}
+
+function checkUI() {
+
+    const items = itemList.querySelectorAll('li');
+
+    if (items.length === 0) {
+        checkOutBtn.style.display = 'none';
+    } else {
+        checkOutBtn.style.display = 'block';
+    }
 }
 
 
