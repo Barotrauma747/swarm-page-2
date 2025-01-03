@@ -11,6 +11,7 @@ const counter = document.getElementById('cntr');
 const crtBtn = document.querySelectorAll('.addToCart');
 const rmvBtn = document.querySelectorAll('.remove-item-btn');
 const checkOutBtn = document.querySelector('#checkout-btn');
+const clearBtn = document.querySelector('.clearAll');
 
 //console.log(shoppingCart);
 
@@ -38,7 +39,6 @@ albumList.forEach(function (item) {
         if (e.target.classList.contains('addToCart')) {
             addItemtoDOM(item);
             addItemToStorage(item.firstElementChild.nextElementSibling.firstElementChild.textContent);
-            console.log(item.firstElementChild.nextElementSibling.firstElementChild.textContent);
         }
     }
     checkUI()
@@ -182,8 +182,10 @@ function checkUI() {
 
     if (items.length === 0) {
         checkOutBtn.style.display = 'none';
+        clearBtn.style.display = 'none';
     } else {
         checkOutBtn.style.display = 'block';
+        clearBtn.style.display = 'block';
     }
 }
 
