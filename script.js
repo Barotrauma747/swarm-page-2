@@ -31,14 +31,17 @@ albumList.forEach(function (item) {
 });
 
 
+
 //Add Item to Cart
 albumList.forEach(function (item) {
     item.addEventListener('click', addToCart);
 
     function addToCart(e) {
         if (e.target.classList.contains('addToCart')) {
-            addItemtoDOM(item);
+            addItemToDOM(item);
+
             addItemToStorage(item.firstElementChild.nextElementSibling.firstElementChild.textContent);
+
             addPriceToStorage(item.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent)
         }
     }
@@ -93,7 +96,7 @@ function getPricesFromStorage() {
 }
 
 //Create li-Element
-function addItemtoDOM (arg) {
+function addItemToDOM (arg) {
     const li = document.createElement('li');
     li.className = "item";
 
