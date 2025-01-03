@@ -56,7 +56,7 @@ function addItemtoDOM (arg) {
 //Create Item-Info section
 function itemInfo (arg2) {
     
-    console.log(arg2.firstElementChild);
+    console.log(arg2.firstElementChild.nextElementSibling.firstElementChild.textContent);
 
     const div = document.createElement('div');
     div.className = "item-info";
@@ -69,7 +69,7 @@ function itemInfo (arg2) {
 
     const albumName = document.createElement('div');
     albumName.className = "album-Name";
-    albumName.innerHTML = "<strong>Abyss</strong>";
+    albumName.innerHTML = `<strong>${arg2.firstElementChild.nextElementSibling.firstElementChild.textContent}</strong>`;
 
     const price = document.createElement('div');
     price.className = "price";
