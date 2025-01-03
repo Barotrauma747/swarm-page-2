@@ -34,19 +34,19 @@ albumList.forEach(function (item) {
     function addToCart(e) {
         if (e.target.classList.contains('addToCart')) {
             console.log(e.target.parentElement.firstElementChild.src);
-            addItemtoDOM();
+            addItemtoDOM(item);
         }
     }
 });
 
 
 //Create li-Element
-function addItemtoDOM () {
+function addItemtoDOM (arg) {
     const li = document.createElement('li');
     li.className = "item";
 
-    const remCntSec = removeAndCounterSection();
-    const itemInfoSec = itemInfo();
+    const remCntSec = removeAndCounterSection(arg);
+    const itemInfoSec = itemInfo(arg);
 
     li.appendChild(itemInfoSec);
     li.appendChild(remCntSec);
@@ -54,12 +54,15 @@ function addItemtoDOM () {
 }
 
 //Create Item-Info section
-function itemInfo () {
+function itemInfo (arg2) {
+    
+    console.log(arg2.firstElementChild);
+
     const div = document.createElement('div');
     div.className = "item-info";
 
     const image = document.createElement('img');
-    image.src = "./images/abyss.jpeg";
+    image.src = arg2.firstElementChild.src;
 
     const albumInfo = document.createElement('div');
     albumInfo.className = "album-info";
