@@ -56,7 +56,7 @@ function addItemtoDOM (arg) {
 //Create Item-Info section
 function itemInfo (arg2) {
     
-    console.log(arg2.firstElementChild.nextElementSibling.firstElementChild.textContent);
+    console.log(arg2.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.textContent);
 
     const div = document.createElement('div');
     div.className = "item-info";
@@ -73,7 +73,7 @@ function itemInfo (arg2) {
 
     const price = document.createElement('div');
     price.className = "price";
-    price.textContent = "9.99$";
+    price.textContent = `${arg2.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent}${arg2.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.textContent}`;
 
     const packageVersion = document.createElement('div');
     packageVersion.className = "package-form";
