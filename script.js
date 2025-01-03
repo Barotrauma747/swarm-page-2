@@ -202,6 +202,7 @@ function clearAll (e) {
             itemList.removeChild(itemList.firstChild)
         }
     }
+    checkUI();
 }
 
 function checkUI() {
