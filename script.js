@@ -1,6 +1,8 @@
 
 //Elements
 const albumList = document.querySelectorAll('.album');
+const shoppingCart = document.querySelector('.shopping-cart')
+const cartItem = document.querySelectorAll('li')
 const cardList = document.querySelector('.cards');
 const itemList = document.querySelector('.item-list');
 const itemForm = document.querySelectorAll('.item-form');
@@ -8,9 +10,9 @@ const signBtn = document.querySelectorAll('.btn2');
 const counter = document.getElementById('cntr');
 const crtBtn = document.querySelectorAll('.addToCart');
 const rmvBtn = document.querySelectorAll('.remove-item-btn');
-const checkOutBtn = document.querySelector('.btn3');
+const checkOutBtn = document.querySelector('#checkout-btn');
 
-//console.log(checkOutBtn);
+//console.log(shoppingCart);
 
 //Background-hover album cards
 albumList.forEach(function (item) {
@@ -35,11 +37,35 @@ albumList.forEach(function (item) {
     function addToCart(e) {
         if (e.target.classList.contains('addToCart')) {
             addItemtoDOM(item);
+            addItemToStorage(item.firstElementChild.nextElementSibling.firstElementChild.textContent);
+            console.log(item.firstElementChild.nextElementSibling.firstElementChild.textContent);
         }
     }
     checkUI()
 });
 
+
+function addItemToStorage(item) {
+    const itemsFromStorage = getItemsFromStorage();
+
+    itemsFromStorage.push(item);
+
+    localStorage.setItem('items', JSON.stringify(itemsFromStorage));
+}
+
+function getItemsFromStorage() {
+
+    let itemsFromStorage;
+    
+    //Check if anything is in the local storage
+    if(localStorage.getItem('items') === null) {
+        itemsFromStorage = []; 
+    } else {
+        itemsFromStorage = JSON.parse(localStorage.getItem('items')); 
+    }
+
+    return itemsFromStorage; 
+}
 
 //Create li-Element
 function addItemtoDOM (arg) {
@@ -139,6 +165,17 @@ function removeItem(item) {
         checkUI();
 }
 
+
+//Clear Cart Button
+function clearAll (e) {
+    if (e.target.classList.contains('clearAll')){
+        localStorage.clear();
+        while (itemList.firstChild) {
+            itemList.removeChild(itemList.firstChild)
+        }
+    }
+}
+
 function checkUI() {
 
     const items = itemList.querySelectorAll('li');
@@ -152,4 +189,5 @@ function checkUI() {
 
 
 itemList.addEventListener('click', onClickItem);
+shoppingCart.addEventListener('click', clearAll);
 
