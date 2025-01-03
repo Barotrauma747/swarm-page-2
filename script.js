@@ -39,6 +39,7 @@ albumList.forEach(function (item) {
         if (e.target.classList.contains('addToCart')) {
             addItemtoDOM(item);
             addItemToStorage(item.firstElementChild.nextElementSibling.firstElementChild.textContent);
+            addPriceToStorage(item.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent)
         }
     }
     checkUI()
@@ -53,7 +54,16 @@ function addItemToStorage(item) {
     localStorage.setItem('items', JSON.stringify(itemsFromStorage));
 }
 
-function getItemsFromStorage() {
+function addPriceToStorage(item) {
+    const pricesFromStorage = getPricesFromStorage();
+
+    pricesFromStorage.push(item);
+
+    localStorage.setItem('prices', JSON.stringify(pricesFromStorage))
+}
+
+
+ function getItemsFromStorage() {
 
     let itemsFromStorage;
     
@@ -65,6 +75,21 @@ function getItemsFromStorage() {
     }
 
     return itemsFromStorage; 
+}
+
+
+function getPricesFromStorage() {
+
+    let pricesFromStorage;
+    
+    //Check if anything is in the local storage
+    if(localStorage.getItem('prices') === null) {
+        pricesFromStorage = []; 
+    } else {
+        pricesFromStorage = JSON.parse(localStorage.getItem('prices')); 
+    }
+
+    return pricesFromStorage; 
 }
 
 //Create li-Element
