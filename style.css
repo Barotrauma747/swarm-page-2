@@ -164,13 +164,21 @@ a#header-link {
     flex-grow: 0;
 }
 
-.album-info {}
-
 .item-nmbr-rmv {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.title-info {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: large;
 }
 
 .bottom {
