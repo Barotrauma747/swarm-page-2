@@ -104,7 +104,7 @@ function removeAndCounterSection () {
 
         const counter = document.createElement('form');
         counter.className = "item-nmbr";
-        counter.innerHTML = '<input type="number" id="cntr" value="1" style="width:3em">';
+        counter.innerHTML = '<input type="number" id="cntr" value="1" min="0" style="width:3em">';
     
 
         const button = document.createElement('button');
