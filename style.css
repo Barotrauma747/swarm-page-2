@@ -181,6 +181,13 @@ a#header-link {
     font-size: large;
 }
 
+.price-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10px;
+}
+
 .bottom {
     padding-left: 160px;
     padding-right: 160px;
