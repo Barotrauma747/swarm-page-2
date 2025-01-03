@@ -269,9 +269,10 @@ a#header-link {
     border: #e5e7eb solid 3px;
     color: beige;
     display: block;
-    width: 10rem;
+    width: 8rem;
     padding: 10px 20px;
     margin-top: 30px;
+    font-weight: 600;
 }
 
 .footer {
