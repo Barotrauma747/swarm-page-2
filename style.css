@@ -132,7 +132,8 @@ a#header-link {
     margin-right: 1rem
 }
 
-.cart-header {
+.cart-header,
+.balance {
     color: rgb(197, 197, 197);
     font-weight: 600;
     font-size: large;
