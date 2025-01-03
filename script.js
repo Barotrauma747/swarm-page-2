@@ -9,7 +9,7 @@ const counter = document.getElementById('cntr');
 const crtBtn = document.querySelectorAll('.addToCart');
 const rmvBtn = document.querySelectorAll('.remove-item-btn');
 
-console.log(cardList);
+//console.log(cardList);
 
 //Background-hover album cards
 albumList.forEach(function (item) {
@@ -33,7 +33,6 @@ albumList.forEach(function (item) {
 
     function addToCart(e) {
         if (e.target.classList.contains('addToCart')) {
-            console.log(e.target.parentElement.firstElementChild.src);
             addItemtoDOM(item);
         }
     }
@@ -56,7 +55,7 @@ function addItemtoDOM (arg) {
 //Create Item-Info section
 function itemInfo (arg2) {
     
-    console.log(arg2.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.textContent);
+    // console.log(arg2.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.textContent);
 
     const div = document.createElement('div');
     div.className = "item-info";
