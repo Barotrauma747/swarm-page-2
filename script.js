@@ -305,6 +305,7 @@ function checkUI() {
 
 }
 
+checkUI();
 
 itemList.addEventListener('click', onClickItem);
 shoppingCart.addEventListener('click', clearAll);
