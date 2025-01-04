@@ -74,7 +74,7 @@ if (e.target.classList.contains('addToCart')) {;
 
             addPriceToStorage(e.target.parentElement.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent)
 
-            console.log(e.target.parentElement);
+            //console.log(e.target.parentElement);
         }
         checkUI()
     }
@@ -137,11 +137,21 @@ function removeItemFromStorage(item) {
     localStorage.setItem('items', JSON.stringify(itemsFromStorage));
 }
 
+
 function removePricesFromStorage(item) {
     let pricesFromStorage = getPricesFromStorage();
 
-    //Filter out item to be removed
-    pricesFromStorage = pricesFromStorage.filter((i) => i !== item);
+    //Filter out item to be removed without removing all duplicates
+    let idx = pricesFromStorage.indexOf(item)
+    if(idx >= 0) {
+        pricesFromStorage.splice(idx,1)
+    }
+
+    //Explanation: the indexOf() method gives me the index number of the item (in this case the price - e.g. "9.99").
+    //If that index number is bigger or equal to 0 (an index number of '-1' would be the output if that number didn't occur in the array).
+    //Then I splice the array to modify the original array - here I use the idx output as my starting index-number (because that's my item number) and then remove only this one - so '.splice(starting index nr, amount of numbers to be removed)
+
+    // pricesFromStorage = pricesFromStorage.filter((i) => i !== item);
 
     // Re-set to local storage
     localStorage.setItem('prices', JSON.stringify(pricesFromStorage));
@@ -175,6 +185,7 @@ function addItemToDOM (arg) {
 
     checkUI();
 }
+
 
 //Create Item-Info section
 function itemInfo (arg2) {
@@ -262,8 +273,6 @@ function removeItem(item) {
 
         //Remove price from storage
         removePricesFromStorage(item.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent)
-        
-        console.log(item.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent);
         
         checkUI();
 }
