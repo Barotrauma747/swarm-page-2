@@ -189,6 +189,10 @@ a#header-link {
     padding-top: 10px;
 }
 
+.price {
+    display: inline-block;
+}
+
 .bottom {
     padding-left: 160px;
     padding-right: 160px;

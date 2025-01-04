@@ -197,6 +197,9 @@ function itemInfo (arg2) {
     const price = document.createElement('div');
     price.className = "price";
     price.textContent = `${arg2.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent}`
+    const curr = document.createElement('div');
+    curr.className = "price";
+    curr.textContent = '$';
 
     const packageVersion = document.createElement('div');
     packageVersion.className = "package-form";
@@ -209,6 +212,7 @@ function itemInfo (arg2) {
     packageVersion.appendChild(select);
     albumInfo.appendChild(albumName);
     albumInfo.appendChild(price);
+    albumInfo.appendChild(curr);
     albumInfo.appendChild(packageVersion);
     div.appendChild(image);
     div.appendChild(albumInfo);
