@@ -12,8 +12,9 @@ const crtBtn = document.querySelectorAll('.addToCart');
 const rmvBtn = document.querySelectorAll('.remove-item-btn');
 const checkOutBtn = document.querySelector('#checkout-btn');
 const clearBtn = document.querySelector('.clearAll');
+const total = document.querySelector('.balance')
 
-//console.log(shoppingCart);
+//console.log(total.textContent);
 
 //Background-hover album cards
 albumList.forEach(function (item) {
@@ -250,6 +251,7 @@ function clearAll (e) {
 function checkUI() {
 
     const items = itemList.querySelectorAll('li');
+    total.textContent = `Total: ${sumOfPrices()}$`;
 
     if (items.length === 0) {
         checkOutBtn.style.display = 'none';
@@ -258,6 +260,8 @@ function checkUI() {
         checkOutBtn.style.display = 'block';
         clearBtn.style.display = 'block';
     }
+
+
 }
 
 
