@@ -74,7 +74,7 @@ if (e.target.classList.contains('addToCart')) {;
 
             addPriceToStorage(e.target.parentElement.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent)
 
-            //console.log(e.target.parentElement);
+            console.log(e.target.parentElement);
         }
         checkUI()
     }
@@ -126,6 +126,28 @@ function getPricesFromStorage() {
     return pricesFromStorage; 
 }
 
+
+function removeItemFromStorage(item) {
+    let itemsFromStorage = getItemsFromStorage();
+
+    //Filter out item to be removed
+    itemsFromStorage = itemsFromStorage.filter((i) => i !== item);
+
+    // Re-set to local storage
+    localStorage.setItem('items', JSON.stringify(itemsFromStorage));
+}
+
+function removePricesFromStorage(item) {
+    let pricesFromStorage = getPricesFromStorage();
+
+    //Filter out item to be removed
+    pricesFromStorage = pricesFromStorage.filter((i) => i !== item);
+
+    // Re-set to local storage
+    localStorage.setItem('prices', JSON.stringify(pricesFromStorage));
+}
+
+
 function sumOfPrices () {
     const prices = getPricesFromStorage();
     const pricesNumber = prices.map(Number);
@@ -137,6 +159,7 @@ function sumOfPrices () {
     return sum.toFixed(2);
 }
 //console.log(sumOfPrices());
+
 
 //Create li-Element
 function addItemToDOM (arg) {
@@ -156,7 +179,7 @@ function addItemToDOM (arg) {
 //Create Item-Info section
 function itemInfo (arg2) {
     
-    // console.log(arg2.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.textContent);
+    //console.log(arg2);
 
     const div = document.createElement('div');
     div.className = "item-info";
@@ -173,7 +196,7 @@ function itemInfo (arg2) {
 
     const price = document.createElement('div');
     price.className = "price";
-    price.textContent = `${arg2.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent}${arg2.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.textContent}`;
+    price.textContent = `${arg2.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent}`
 
     const packageVersion = document.createElement('div');
     packageVersion.className = "package-form";
@@ -231,8 +254,13 @@ function removeItem(item) {
         item.remove();
 
         //Remove item from storage
-        //removeItemFromStorage(item.textContent);
+        removeItemFromStorage(item.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.textContent);
 
+        //Remove price from storage
+        removePricesFromStorage(item.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent)
+        
+        console.log(item.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent);
+        
         checkUI();
 }
 
