@@ -31,22 +31,52 @@ albumList.forEach(function (item) {
 });
 
 
+// function displayItems() {
+//     const itemsFromStorage = getItemsFromStorage();
+    
+//     const name = document.querySelectorAll('.title')
+
+//     console.log(itemsFromStorage);
+//     console.log(name);
+//     let names;
+//     names = [];
+
+//    name.forEach(function (item) {
+//     names.push(item.parentElement)
+//    })
+//    console.log(names);
+
+//     itemsFromStorage.forEach(function (item) {
+//         if (item === 'Pathogenesis' || item === 'Ruinous' || item === 'Abyss' || item === 'Pulsing Convalescence') {
+//             console.log('works');
+//         }
+//     })
+
+//     checkUI();
+// }
+
 
 //Add Item to Cart
-albumList.forEach(function (item) {
-    item.addEventListener('click', addToCart);
 
-    function addToCart(e) {
-        if (e.target.classList.contains('addToCart')) {
-            addItemToDOM(item);
+function addItemToCart (e) {
 
-            addItemToStorage(item.firstElementChild.nextElementSibling.firstElementChild.textContent);
+if (e.target.classList.contains('addToCart')) {;
+//console.log(e.target.parentElement);
 
-            addPriceToStorage(item.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent)
+// albumList.forEach(function (item) {
+//     item.addEventListener('click',addToCart);
+
+    
+            addItemToDOM(e.target.parentElement);
+
+            addItemToStorage(e.target.parentElement.firstElementChild.nextElementSibling.firstElementChild.textContent);
+
+            addPriceToStorage(e.target.parentElement.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent)
+
+            //console.log(e.target.parentElement);
         }
+        checkUI()
     }
-    checkUI()
-});
 
 
 function addItemToStorage(item) {
@@ -94,6 +124,18 @@ function getPricesFromStorage() {
 
     return pricesFromStorage; 
 }
+
+function sumOfPrices () {
+    const prices = getPricesFromStorage();
+    const pricesNumber = prices.map(Number);
+    
+    let sum = 0;
+
+    pricesNumber.forEach(num => sum += num);
+
+    return sum.toFixed(2);
+}
+//console.log(sumOfPrices());
 
 //Create li-Element
 function addItemToDOM (arg) {
@@ -221,4 +263,7 @@ function checkUI() {
 
 itemList.addEventListener('click', onClickItem);
 shoppingCart.addEventListener('click', clearAll);
+cardList.addEventListener('click', addItemToCart)
+// document.addEventListener('DOMContentLoaded', displayItems);
+
 
