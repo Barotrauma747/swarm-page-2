@@ -14,7 +14,13 @@ const checkOutBtn = document.querySelector('#checkout-btn');
 const clearBtn = document.querySelector('.clearAll');
 const total = document.querySelector('.balance')
 
-//console.log(total.textContent);
+//Album const
+const pathogenesis = cardList.firstElementChild;
+const abyss = pathogenesis.nextElementSibling;
+const ruinous = abyss.nextElementSibling;
+const pulsing = ruinous.nextElementSibling;
+
+//console.log(abyss);
 
 //Background-hover album cards
 albumList.forEach(function (item) {
@@ -32,29 +38,25 @@ albumList.forEach(function (item) {
 });
 
 
-// function displayItems() {
-//     const itemsFromStorage = getItemsFromStorage();
-    
-//     const name = document.querySelectorAll('.title')
+function displayItems() {
+    const itemsFromStorage = getItemsFromStorage();
 
-//     console.log(itemsFromStorage);
-//     console.log(name);
-//     let names;
-//     names = [];
+    itemsFromStorage.forEach(function (item) {
+        if (item === 'Pathogenesis') {
+            addItemToDOM(pathogenesis)
+        } else if (item === 'Abyss') {
+            addItemToDOM(abyss) 
+        } else if (item === 'Ruinous') {
+            addItemToDOM(ruinous)
+        } else if (item === 'Pulsing Convalescence') {
+            addItemToDOM(pulsing)
+        } else {
+            console.log('album not yet in const');
+        }
+    })
 
-//    name.forEach(function (item) {
-//     names.push(item.parentElement)
-//    })
-//    console.log(names);
-
-//     itemsFromStorage.forEach(function (item) {
-//         if (item === 'Pathogenesis' || item === 'Ruinous' || item === 'Abyss' || item === 'Pulsing Convalescence') {
-//             console.log('works');
-//         }
-//     })
-
-//     checkUI();
-// }
+    checkUI();
+}
 
 
 //Add Item to Cart
@@ -310,6 +312,6 @@ checkUI();
 itemList.addEventListener('click', onClickItem);
 shoppingCart.addEventListener('click', clearAll);
 cardList.addEventListener('click', addItemToCart)
-// document.addEventListener('DOMContentLoaded', displayItems);
+document.addEventListener('DOMContentLoaded', displayItems);
 
 
