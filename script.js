@@ -291,6 +291,14 @@ function clearAll (e) {
     checkUI();
 }
 
+
+function newsletterSignUp(e) {
+    if(e.target.classList.contains('signup-btn')) {
+        alert('You are signed up for the ITS Newsletter')
+    }
+}
+
+
 function checkUI() {
 
     const items = itemList.querySelectorAll('li');
@@ -313,5 +321,6 @@ itemList.addEventListener('click', onClickItem);
 shoppingCart.addEventListener('click', clearAll);
 cardList.addEventListener('click', addItemToCart)
 document.addEventListener('DOMContentLoaded', displayItems);
+document.addEventListener('click', newsletterSignUp);
 
 
